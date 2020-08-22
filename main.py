@@ -526,7 +526,9 @@ if __name__ == "__main__":
     print(ans[1])"""
 
     # testing folder_to_data() method 
-    folder_to_data("test_pic", "test_", cut_n=6)
+    #folder_to_data("test_pic", "test_", cut_n=6)
+
+    generate_pics("generate_testpics", "generate_test2pics", 1)
 
 
     #classify_folder("test_pic","train1",gt=gt,testflag=1,cut_n=6,numsort=0)
