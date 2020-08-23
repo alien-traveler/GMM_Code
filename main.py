@@ -244,7 +244,7 @@ def finddensefromcut(path,cut_n):
         #cv2.waitKey(0)
     return denses,wi
 
-def BGMreport(path,visualize=1,cut_n=6):
+def BGMreport(path,count,visualize=1,cut_n=6):
     t2=15
     t3=0.07
     n_components=3
@@ -290,8 +290,9 @@ def BGMreport(path,visualize=1,cut_n=6):
                 plt.ylim(0,255)
                 #plt.show()
         
-        plt.savefig('plot_images/imagea.png') # 临时加的，保存图片
-        plt.show()
+        plt.savefig('curve/'+ str(count) +'.jpg') # 临时加的，保存图片
+        #plt.show()
+        plt.clf()
     ans=np.zeros((12,))
     pre=np.zeros((5,n_components))
     for i in range(5):###preprocessing the data to avoid peak overlapping(far overlap and near overlap) influence: identify far/near overlap cases and suppress far overlap peaks, amplify near overlap peaks
@@ -527,7 +528,12 @@ if __name__ == "__main__":
 
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
-    ans = BGMreport("test_pic/WeChat Image_20200821174540.jpg", 1, cut_n=6)
-    print(ans)
+    path = 'after_change_pics/'
+    count = 21
+    for filename in os.listdir(path):
+        ans = BGMreport(os.path.join(path, filename), count, 1, cut_n=6)
+        print(ans[0])
+        count += 1
+    
 
     #classify_folder("test_pic","train1",gt=gt,testflag=1,cut_n=6,numsort=0)
