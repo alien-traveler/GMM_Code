@@ -526,7 +526,8 @@ if __name__ == "__main__":
     print(ans[1])"""
 
     # testing folder_to_data() method 
-    folder_to_data("test_pic", "test_", cut_n=6)
-
+    #folder_to_data("test_pic", "test_", cut_n=6)
+    ans = BGMreport("test_pic/WeChat Image_20200821174540.jpg", 1, cut_n=6)
+    print(ans)
 
     #classify_folder("test_pic","train1",gt=gt,testflag=1,cut_n=6,numsort=0)
