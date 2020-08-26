@@ -247,7 +247,10 @@ def finddensefromcut(path,cut_n):
 def BGMreport(path,count,visualize=1,cut_n=6):
     t2=15
     t3=0.07
+    
+    # 8.25 Change n_component, the next line needs to be changed
     n_components=3
+
     denses,_=finddensefromcut(path,cut_n)
     maxd=[]
     for dense in denses[(cut_n-5):]:#同时处理带spe和不带的图
@@ -259,22 +262,27 @@ def BGMreport(path,count,visualize=1,cut_n=6):
     allmeans=[]
     allcovs=[]
     allweights=[]
-    BGM45=np.zeros((45))
+
+    """ 8.25 It was 45 in the next line (when the n_component is 3)
+    If the n_component is 3, it should be 3*3*5;
+    if is 4, it should be 4*3*5"""
+    BGM45=np.zeros((n_components*15))
+    
     for i in range(5):
         BGM=BayesianGaussianMixture(n_components=n_components,covariance_type='spherical',weight_concentration_prior=0.000000000001,max_iter=500)
         BGM.fit(samples[i])
         means=np.reshape(BGM.means_,(-1,))
         permu=np.argsort(means)
         means=means[permu]
-        BGM45[i*9+3:i*9+6]=means
+        BGM45[i*(9+3):i*(9+n_components)]=means
         allmeans.append(means)
         covs=BGM.covariances_
         covs=covs[permu]
-        BGM45[i*9+6:i*9+9]=covs
+        BGM45[i*(9+6):i*(9+n_components)]=covs
         allcovs.append(covs)
         weights=BGM.weights_
         weights=weights[permu]
-        BGM45[i*9:i*9+3]=weights*len(samples[i])
+        BGM45[i*9:i*(9+n_components)]=weights*len(samples[i])
         allweights.append(weights)
     if visualize==1:
         l=0
@@ -290,7 +298,7 @@ def BGMreport(path,count,visualize=1,cut_n=6):
                 plt.ylim(0,255)
                 #plt.show()
         
-        plt.savefig('curve/'+ str(count) +'.jpg') # 临时加的，保存图片
+        plt.savefig('n_component_test/curve/'+ str(count) +'.jpg') # 临时加的，保存图片
         #plt.show()
         plt.clf()
     ans=np.zeros((12,))
@@ -528,12 +536,12 @@ if __name__ == "__main__":
 
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
-    path = 'after_change_pics/'
-    count = 21
-    for filename in os.listdir(path):
-        ans = BGMreport(os.path.join(path, filename), count, 1, cut_n=6)
-        print(ans[0])
-        count += 1
+    path = 'n_component_test/imgb4/21.jpg'
+    count = 4
+
+    ans = BGMreport(path, count, 1, cut_n=6)
+    print(ans[0])
+    
     
 
     #classify_folder("test_pic","train1",gt=gt,testflag=1,cut_n=6,numsort=0)
