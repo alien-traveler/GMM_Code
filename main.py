@@ -249,50 +249,75 @@ def BGMreport(path,count,visualize=1,cut_n=6):
     t3=0.07
     
     # 8.25 Change n_component, the next line needs to be changed
-    n_components=3
+    n_components=count
 
     denses,_=finddensefromcut(path,cut_n)
     maxd=[]
-    for dense in denses[(cut_n-5):]:#同时处理带spe和不带的图
+    for dense in denses[0:]:#同时处理带spe和不带的图
         maxd.append(max(dense))
     lofd=len(denses[0])
     samples=list()
-    for i in range((cut_n-5),cut_n):#sampling for BGM
+    for i in range(0,cut_n):#sampling for BGM
         samples.append(np.array(tosample(denses[i])).reshape(-1,1))
     allmeans=[]
     allcovs=[]
     allweights=[]
 
-    """ 8.25 It was 45 in the next line (when the n_component is 3)
+    """ 8.25.20 It was 45 in the next line (when the n_component is 3)
     If the n_component is 3, it should be 3*3*5;
-    if is 4, it should be 4*3*5"""
-    BGM45=np.zeros((n_components*15))
+    if is 4, it should be 4*3*5
+    8.26.20 This number should contain 3*3*5 + n_component*3*1 """
+    BGM45=np.zeros((45+n_components*3))
     
-    for i in range(5):
-        num = n_components*3 # the number of components (curve) multiply by their three values (mean, cov, weight)
-        BGM=BayesianGaussianMixture(n_components=n_components,covariance_type='spherical',weight_concentration_prior=0.000000000001,max_iter=500)
+    for i in range(6):
+        # specific for the first column
+        a = 3
+        if i == 0:
+            a = n_components
+        BGM=BayesianGaussianMixture(n_components=a,covariance_type='spherical',weight_concentration_prior=0.000000000001,max_iter=500)
         BGM.fit(samples[i])
         means=np.reshape(BGM.means_,(-1,))
         permu=np.argsort(means)
         means=means[permu]
-        BGM45[i*num+n_components:i*num+2*n_components]=means
-        allmeans.append(means)
+        
+
         covs=BGM.covariances_
         covs=covs[permu]
-        BGM45[i*num+2*n_components:i*num+3*n_components]=covs
-        allcovs.append(covs)
+        
         weights=BGM.weights_
         weights=weights[permu]
-        BGM45[i*num:i*num+n_components]=weights*len(samples[i])
+
+        
+        # the first column, which should contain n_components curves 
+        if i == 0:
+            BGM45[n_components:2*n_components]=means
+            allmeans.append(means)
+            BGM45[2*n_components:3*n_components]=covs
+            allcovs.append(covs)
+            BGM45[0:n_components]=weights*len(samples[i])
+            allweights.append(weights)
+            continue
+
+        BGM45[(i-1)*9+n_components*3+3 : (i-1)*9+n_components*3+6]=means
+        allmeans.append(means)
+        BGM45[(i-1)*9+n_components*3+6 : (i-1)*9+n_components*3+9]=covs
+        allcovs.append(covs)
+        BGM45[(i-1)*9+n_components*3 : (i-1)*9+n_components*3+3]=weights*len(samples[i]) # n_component*3 is the number storage of the first column
         allweights.append(weights)
-    if visualize==1:
+
+    if visualize==1:        
         l=0
-        for i in range(cut_n-5,cut_n):#visualization
+        for i in range(0,cut_n):#visualization
+            # specific for the first column
+            a = 3
+            if i == 0:
+                a = n_components
+
             l+=1
             plt.subplot(3,2,l),plt.plot(denses[i])
             X=np.linspace(0,lofd,num=200,endpoint=False)
-            Ys=toGM(X,n_components,allmeans[l-1],allcovs[l-1],allweights[l-1])
-            for j in range(n_components):
+            Ys=toGM(X,a,allmeans[l-1],allcovs[l-1],allweights[l-1])
+            for j in range(a):
                 #plt.subplot(1,5,l),plt.plot([allmeans[l-1][j],allmeans[l-1][j]],[0,255])
                 plt.subplot(3,2,l),plt.plot(X,len(samples[l-1])*Ys[j])
                 #plt.subplot(2,n_components,l),plt.plot(X,Ys[j])
@@ -303,11 +328,18 @@ def BGMreport(path,count,visualize=1,cut_n=6):
         #plt.show()
         plt.clf()
     ans=np.zeros((12,))
-    pre=np.zeros((5,n_components))
-    for i in range(5):###preprocessing the data to avoid peak overlapping(far overlap and near overlap) influence: identify far/near overlap cases and suppress far overlap peaks, amplify near overlap peaks
+    pre=np.zeros((6,n_components))
+    pre_first_column=np.zeros((6,n_components))
+    for i in range(6):###preprocessing the data to avoid peak overlapping(far overlap and near overlap) influence: identify far/near overlap cases and suppress far overlap peaks, amplify near overlap peaks
         ###如果很理想的情况应该能把两个far overlap的peak合并成一个在中间mean的，但是现在可以先直接把两个抑制掉，毕竟就不太可能是单克隆峰了。far overlap也就是两个峰实际上在图里面是同一个，BGM将其拆分从而更好的拟合高斯模型，我们这里将其抑制因为能够拆分为两个峰的基本上cov都比较大，不尖。
-        for j in range(n_components):
-            for l in range(n_components):
+        
+        # specific for the first column
+        a = 3
+        if i == 0:
+            a = n_components
+
+        for j in range(a):
+            for l in range(a):
                 if j<l:
                     if allweights[i][j]/allweights[i][l]>3 or allweights[i][j]/allweights[i][l]<0.3333:#ignore when weight difference is too large
                         continue
@@ -350,8 +382,13 @@ def BGMreport(path,count,visualize=1,cut_n=6):
                                     ans[7+i]=1
                                     ans[7+j]=1  
                                     ans[0]=1   
-    for i in range(5):
-        for j in range(n_components):
+    for i in range(6):
+        # specific for the first column
+        a = 3
+        if i == 0:
+            a = n_components
+
+        for j in range(a):
             if pre[i][j]==1:
                 continue
             if maxd[i]<80:
@@ -538,7 +575,7 @@ if __name__ == "__main__":
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
     path = 'n_component_test/imgb4/21.jpg'
-    count = 3
+    count = 10
 
     ans = BGMreport(path, count, 1, cut_n=6)
     print(ans[0])
