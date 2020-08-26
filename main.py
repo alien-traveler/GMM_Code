@@ -274,15 +274,15 @@ def BGMreport(path,count,visualize=1,cut_n=6):
         means=np.reshape(BGM.means_,(-1,))
         permu=np.argsort(means)
         means=means[permu]
-        BGM45[i*(9+3):i*(9+n_components)]=means
+        BGM45[i*9+3:i*9+6]=means
         allmeans.append(means)
         covs=BGM.covariances_
         covs=covs[permu]
-        BGM45[i*(9+6):i*(9+n_components)]=covs
+        BGM45[i*9+6:i*9+9]=covs
         allcovs.append(covs)
         weights=BGM.weights_
         weights=weights[permu]
-        BGM45[i*9:i*(9+n_components)]=weights*len(samples[i])
+        BGM45[i*9:i*9+3]=weights*len(samples[i])
         allweights.append(weights)
     if visualize==1:
         l=0
@@ -537,7 +537,7 @@ if __name__ == "__main__":
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
     path = 'n_component_test/imgb4/21.jpg'
-    count = 4
+    count = 3
 
     ans = BGMreport(path, count, 1, cut_n=6)
     print(ans[0])
