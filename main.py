@@ -269,31 +269,32 @@ def BGMreport(path,count,visualize=1,cut_n=6):
     BGM45=np.zeros((n_components*15))
     
     for i in range(5):
+        num = n_components*3 # the number of components (curve) multiply by their three values (mean, cov, weight)
         BGM=BayesianGaussianMixture(n_components=n_components,covariance_type='spherical',weight_concentration_prior=0.000000000001,max_iter=500)
         BGM.fit(samples[i])
         means=np.reshape(BGM.means_,(-1,))
         permu=np.argsort(means)
         means=means[permu]
-        BGM45[i*(9+3):i*(9+n_components)]=means
+        BGM45[i*num+n_components:i*num+2*n_components]=means
         allmeans.append(means)
         covs=BGM.covariances_
         covs=covs[permu]
-        BGM45[i*(9+6):i*(9+n_components)]=covs
+        BGM45[i*num+2*n_components:i*num+3*n_components]=covs
         allcovs.append(covs)
         weights=BGM.weights_
         weights=weights[permu]
-        BGM45[i*9:i*(9+n_components)]=weights*len(samples[i])
+        BGM45[i*num:i*num+n_components]=weights*len(samples[i])
         allweights.append(weights)
     if visualize==1:
         l=0
         for i in range(cut_n-5,cut_n):#visualization
             l+=1
-            plt.subplot(2,n_components,l),plt.plot(denses[i])
+            plt.subplot(3,2,l),plt.plot(denses[i])
             X=np.linspace(0,lofd,num=200,endpoint=False)
             Ys=toGM(X,n_components,allmeans[l-1],allcovs[l-1],allweights[l-1])
             for j in range(n_components):
                 #plt.subplot(1,5,l),plt.plot([allmeans[l-1][j],allmeans[l-1][j]],[0,255])
-                plt.subplot(2,n_components,l),plt.plot(X,len(samples[l-1])*Ys[j])
+                plt.subplot(3,2,l),plt.plot(X,len(samples[l-1])*Ys[j])
                 #plt.subplot(2,n_components,l),plt.plot(X,Ys[j])
                 plt.ylim(0,255)
                 #plt.show()
@@ -537,7 +538,7 @@ if __name__ == "__main__":
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
     path = 'n_component_test/imgb4/21.jpg'
-    count = 4
+    count = 3
 
     ans = BGMreport(path, count, 1, cut_n=6)
     print(ans[0])
