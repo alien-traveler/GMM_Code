@@ -244,7 +244,7 @@ def finddensefromcut(path,cut_n):
         #cv2.waitKey(0)
     return denses,wi
 
-def BGMreport(path,count,visualize=1,cut_n=6):
+def BGMreport(path,count,filename,visualize=1,cut_n=6):
     t2=15
     t3=0.07
     
@@ -298,7 +298,7 @@ def BGMreport(path,count,visualize=1,cut_n=6):
                 plt.ylim(0,255)
                 #plt.show()
         
-        plt.savefig('n_component_test/curve/'+ str(count) +'.jpg') # 临时加的，保存图片
+        plt.savefig('curve/'+ filename) # 临时加的，保存图片
         #plt.show()
         plt.clf()
     ans=np.zeros((12,))
@@ -536,11 +536,12 @@ if __name__ == "__main__":
 
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
-    path = 'n_component_test/imgb4/21.jpg'
+    path = 'after_change_pics/'
     count = 3
 
-    ans = BGMreport(path, count, 1, cut_n=6)
-    print(ans[0])
+    for filename in os.listdir(path):
+        ans = BGMreport(os.path.join(path, filename), count, filename, 1, cut_n=6)
+        print(ans[0])
     
     
 
