@@ -6,6 +6,7 @@ from sklearn.mixture import BayesianGaussianMixture
 from sklearn.mixture import GaussianMixture
 import os,sys
 import pickle
+from mpl_toolkits.mplot3d import Axes3D
 
 def decision_distance(svm,x):
         w=svm.coef_
@@ -318,13 +319,19 @@ def BGMreport(path,filename,count,visualize=1,cut_n=6):
             X=np.linspace(0,lofd,num=200,endpoint=False)
             Ys=toGM(X,a,allmeans[l-1],allcovs[l-1],allweights[l-1])
             for j in range(a):
-                #plt.subplot(1,5,l),plt.plot([allmeans[l-1][j],allmeans[l-1][j]],[0,255])
-                plt.subplot(3,2,l),plt.plot(X,len(samples[l-1])*Ys[j])
-                #plt.subplot(2,n_components,l),plt.plot(X,Ys[j])
-                plt.ylim(0,255)
-                #plt.show()
+                
+                #plt.subplot(3,2,l),plt.plot(X,len(samples[l-1])*Ys[j])
+                fig = plt.figure()
+                ax = Axes3D(fig)
+
+                z = X*Ys*0
+                ax.plot_surface(X, Ys, z, rstride=1, cstride=1, cmap=plt.cm.jet)
+                
+                #plt.ylim(0,255)
+            
+            plt.show()
         
-        plt.savefig('curve/'+ filename) # 临时加的，保存图片
+        #plt.savefig('curve/'+ filename) # 临时加的，保存图片
         #plt.show()
         plt.clf()
     """ans=np.zeros((12,))
