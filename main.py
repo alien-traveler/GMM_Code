@@ -324,7 +324,7 @@ def BGMreport(path,filename,count,visualize=1,cut_n=6):
                 plt.ylim(0,255)
                 #plt.show()
         
-        plt.savefig('curve/'+ filename) # 临时加的，保存图片
+        plt.savefig('curve/curve2/Gel_D1/'+ filename) # 临时加的，保存图片
         #plt.show()
         plt.clf()
     """ans=np.zeros((12,))
@@ -574,7 +574,7 @@ if __name__ == "__main__":
 
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
-    path = 'after_change_pics/'
+    path = 'after_change_pics/after_change_pics2/Gel_D1/'
     count = 10
     for filename in os.listdir(path):
         BGMreport(os.path.join(path, filename), filename, count, 1, cut_n=6)
