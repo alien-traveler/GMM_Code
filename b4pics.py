@@ -30,12 +30,13 @@ def check_size():
         image = Image.open(os.path.join(path, filename))
         print(image.size)
 
+# crop the image into the size we need
 def crop_original_img():
     count = 0
-    xi, yi, xf, yf = 180, 650, 1580, 1560
-    #box = (xi, yi, xf, yf) # this is the starting point, and the image moves on by increasing (1410, 550) every time
-    path = 'new_test_pics/new_test_pics2/Gel_D1/'
-    img = Image.open(os.path.join(path, "Gel_D1.jpg"))
+    xi, yi, xf, yf = 235, 685, 1636, 1595
+
+    path = 'new_test_pics/new_test_pics2/'
+    img = Image.open(os.path.join(path, "Gel_C9.jpg"))
     for i in range(3):
         for j in range(3):
             box = (xi, yi, xf, yf) # this is the starting point, and the image moves on by increasing (1410, 550) every time
@@ -44,15 +45,10 @@ def crop_original_img():
             count += 1
             xi += 1430
             xf += 1430
-        xi = 180
-        xf = 1580
+        xi = 235
+        xf = 1635
         yi += 930
         yf += 930
-    """new_img = img.crop(box)
-    new_img.show()
-    box = (160+1410, 550, 1570+1410, 1460)
-    new_img = img.crop(box)
-    new_img.show()"""
 
 
 
