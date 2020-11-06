@@ -231,7 +231,11 @@ def finddensefromcut(path,cut_n):
     #hi=img.shape[0]
     wi=img.shape[1]
     hbounds=[]
+    
+    # width band = width? 
+    # 保留长宽(对应x, y)，把深度(颜色)作为z; 不要让宽取均值 11.1
     wiband=int(wi/cut_n)
+    
     flag=0
     mi=int(wi/20)
     for i in range(cut_n):
