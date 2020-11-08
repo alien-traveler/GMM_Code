@@ -30,13 +30,17 @@ def check_size():
         image = Image.open(os.path.join(path, filename))
         print(image.size)
 
-# check the folder dir
-def check_folder_dir():
-    path = 'new_test_pics/new_test_pics2/'
-    folder_name_list = []
-    for filename in os.listdir(path):
-        folder_name_list.append(filename)
-    print(folder_name_list)
+# create new folder dir
+def create_new_folder_dir():
+    path1 = 'new_test_pics\\new_test_pics2\\'
+    path2 = 'curve\\curve3\\'
+    #folder_name_list = []
+    for filename in os.listdir(path1):
+        #folder_name_list.append(filename)
+        newpath = path2 + filename
+        if not os.path.exists(newpath):
+            os.makedirs(newpath)
+    
 
 
 
@@ -70,7 +74,7 @@ def crop_original_img(name, x1, y1):
 
 
 if __name__ == "__main__":
-    """check_folder_dir()"""
-    name = "Gel_C5"
+    create_new_folder_dir()
+    """name = "Gel_C5"
     x, y = 920, 430    # 这是首坐标，第一张要切的小图在大图中的（左上角）坐标
-    crop_original_img(name, x, y)
+    crop_original_img(name, x, y)"""

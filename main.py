@@ -244,14 +244,14 @@ def finddensefromcut(path,cut_n):
         #cv2.waitKey(0)
     return denses,wi
 
-def BGMreport(path,filename,count,visualize=1,cut_n=6):
+def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
     t2=15
     t3=0.07
     
     # 8.25 Change n_component, the next line needs to be changed
     n_components=count
 
-    denses,_=finddensefromcut(path,cut_n)
+    denses,_=finddensefromcut(input_path,cut_n)
     maxd=[]
     for dense in denses[0:]:#同时处理带spe和不带的图
         maxd.append(max(dense))
@@ -324,7 +324,7 @@ def BGMreport(path,filename,count,visualize=1,cut_n=6):
                 plt.ylim(0,255)
                 #plt.show()
         
-        plt.savefig('curve/curve2/Gel_D1/'+ filename) # 临时加的，保存图片
+        plt.savefig(output_path) # 保存图片
         #plt.show()
         plt.clf()
     """ans=np.zeros((12,))
@@ -574,10 +574,29 @@ if __name__ == "__main__":
 
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
-    path = 'after_change_pics/after_change_pics2/Gel_D1/'
+    folder_list = ['Gel_A1', 'Gel_A2', 'Gel_A3', 'Gel_A4', 'Gel_A5', 
+        'Gel_A6', 'Gel_A7', 'Gel_B1', 'Gel_B2', 'Gel_B3', 'Gel_B4', 
+        'Gel_B5', 'Gel_C1', 'Gel_C2', 'Gel_C3', 'Gel_C4', 'Gel_C5', 
+        'Gel_C6', 'Gel_C7', 'Gel_C8', 'Gel_C9', 'Gel_D1']
+
+    path = 'after_change_pics\\after_change_pics3\\'
+    path2 = 'curve\\curve3\\'
     count = 10
-    for filename in os.listdir(path):
-        BGMreport(os.path.join(path, filename), filename, count, 1, cut_n=6)
+    for foldername in folder_list:
+        # each foler under the new_test_pics2
+        folder_path = path + foldername + '\\'
+        folder_path2 = path2 + foldername + '\\'
+        for file_name in os.listdir(folder_path):
+            # each img under the folder (ex. \\Gel_A1)
+            input_path = folder_path + file_name
+            output_path = folder_path2 + file_name
+            BGMreport(input_path, output_path, count, 1, cut_n=6)
+            
+        
+
+
+    """for filename in os.listdir(path):
+        BGMreport(os.path.join(path, filename), filename, count, 1, cut_n=6)"""
     
     #print(ans[0])
     
