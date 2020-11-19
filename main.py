@@ -327,7 +327,7 @@ def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
         plt.savefig(output_path) # 保存图片
         #plt.show()
         plt.clf()
-    """ans=np.zeros((12,))
+    ans=np.zeros((12,))
     pre=np.zeros((6,n_components))
     pre_first_column=np.zeros((6,n_components))
     for i in range(6):###preprocessing the data to avoid peak overlapping(far overlap and near overlap) influence: identify far/near overlap cases and suppress far overlap peaks, amplify near overlap peaks
@@ -400,7 +400,7 @@ def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
             else:
                 ans[7+i]=1
                 ans[0]=1
-    return ans,BGM45"""
+    return ans,BGM45
 """
 def onepeakreport(path):
     t1=130
@@ -580,17 +580,25 @@ if __name__ == "__main__":
         'Gel_C6', 'Gel_C7', 'Gel_C8', 'Gel_C9', 'Gel_D1']
 
     path = 'after_change_pics\\after_change_pics3\\'
-    path2 = 'curve\\curve3\\'
-    count = 10
+    output_path = ""
+    f = open("12d_array_result\\result3\\result.txt", "a")
+    count = 3
     for foldername in folder_list:
         # each foler under the new_test_pics2
         folder_path = path + foldername + '\\'
-        folder_path2 = path2 + foldername + '\\'
+        
         for file_name in os.listdir(folder_path):
             # each img under the folder (ex. \\Gel_A1)
             input_path = folder_path + file_name
-            output_path = folder_path2 + file_name
-            BGMreport(input_path, output_path, count, 1, cut_n=6)
+            result = BGMreport(input_path, output_path, count, 0, cut_n=6)
+            #print(str(result[0]))
+            f.write(foldername + "\t" + file_name + "\t")
+            f.write(str(result[0]) + "\n")
+            
+            
+        f.write("\n")
+        break
+    f.close()
             
         
 
