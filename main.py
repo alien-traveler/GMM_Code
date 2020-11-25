@@ -346,11 +346,12 @@ def BGMreport(input_path,output_path,count,visualize=1,cut_n=6):
 
         for j in range(a):
             for l in range(a):
-                if j<l:
+                if j<l: # 如果相同，就是同一个峰
                     if allweights[i][j]/allweights[i][l]>3 or allweights[i][j]/allweights[i][l]<0.3333:#ignore when weight difference is too large
                         continue
-                    if allcovs[i][j]/allweights[i][j]/allcovs[i][l]*allweights[i][l]/abs(allmeans[i][j]-allmeans[i][l])*mean(np.sqrt(allcovs[i][j]),np.sqrt(allcovs[i][l]))>2 or allcovs[i][l]/allweights[i][l]/allcovs[i][j]*allweights[i][j]/abs(allmeans[i][j]-allmeans[i][l])*mean(np.sqrt(allcovs[i][j]),np.sqrt(allcovs[i][l]))>2:#if the cov difference is large than it will be ignored from far overlap because there should be two peaks in the original density plot
-                    #near overlap situation is when a sharp peak is on a mild one. it happens when monoclonal peak has a background polyclonal peak. here we amplify the sharp peaks' weight when their cov difference is large enough or their distance is close enough so that it will be detected as abnormal in the classification step
+                    #if the cov difference is large than it will be ignored from far overlap because there should be two peaks in the original density plot
+                    if allcovs[i][j]/allweights[i][j]/allcovs[i][l]*allweights[i][l]/abs(allmeans[i][j]-allmeans[i][l])*mean(np.sqrt(allcovs[i][j]),np.sqrt(allcovs[i][l]))>2 or allcovs[i][l]/allweights[i][l]/allcovs[i][j]*allweights[i][j]/abs(allmeans[i][j]-allmeans[i][l])*mean(np.sqrt(allcovs[i][j]),np.sqrt(allcovs[i][l]))>2:
+                    # near overlap situation is when a sharp peak is on a mild one. it happens when monoclonal peak has a background polyclonal peak. here we amplify the sharp peaks' weight when their cov difference is large enough or their distance is close enough so that it will be detected as abnormal in the classification step
                         if abs(allmeans[i][j]-allmeans[i][l])<3.5*np.sqrt(max(allcovs[i][j],allcovs[i][l])):
                             neww=allweights[i][j]+allweights[i][l]
                             if allcovs[i][l]/allweights[i][l]/allcovs[i][j]*allweights[i][j]>1 and allweights[i][j]>0.15:
@@ -573,12 +574,12 @@ folder_to_data("generate_nopics","no",5)
 print(read_label("nolabels.csv",[0,0,0,0,0]))
 """
 if __name__ == "__main__":
-    #folder_to_vae_data("pics/trainpics","vae",6)
-    ans=BGMreport("trainpics/a.jpg", "", 3, 0,cut_n=6)
+    """#folder_to_vae_data("pics/trainpics","vae",6)
+    ans=BGMreport("trainpics/r.jpg", "", 3, 0,cut_n=6)
     print(ans[0])
-    print(ans[1])
+    #print(ans[1])"""
 
-    """# testing folder_to_data() method 
+    # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
     folder_list = ['Gel_A1', 'Gel_A2', 'Gel_A3', 'Gel_A4', 'Gel_A5', 
         'Gel_A6', 'Gel_A7', 'Gel_B1', 'Gel_B2', 'Gel_B3', 'Gel_B4', 
@@ -604,7 +605,7 @@ if __name__ == "__main__":
             
         f.write("\n")
         break
-    f.close()"""
+    f.close()
             
         
 
