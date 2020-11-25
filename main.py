@@ -244,7 +244,7 @@ def finddensefromcut(path,cut_n):
         #cv2.waitKey(0)
     return denses,wi
 
-def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
+def BGMreport(input_path,output_path,count,visualize=1,cut_n=6):
     t2=15
     t3=0.07
     
@@ -573,12 +573,12 @@ folder_to_data("generate_nopics","no",5)
 print(read_label("nolabels.csv",[0,0,0,0,0]))
 """
 if __name__ == "__main__":
-    """#folder_to_vae_data("pics/trainpics","vae",6)
-    ans=BGMreport("trainpics/a.jpg",1,cut_n=6)
+    #folder_to_vae_data("pics/trainpics","vae",6)
+    ans=BGMreport("trainpics/a.jpg", "", 3, 0,cut_n=6)
     print(ans[0])
-    print(ans[1])"""
+    print(ans[1])
 
-    # testing folder_to_data() method 
+    """# testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
     folder_list = ['Gel_A1', 'Gel_A2', 'Gel_A3', 'Gel_A4', 'Gel_A5', 
         'Gel_A6', 'Gel_A7', 'Gel_B1', 'Gel_B2', 'Gel_B3', 'Gel_B4', 
@@ -604,7 +604,7 @@ if __name__ == "__main__":
             
         f.write("\n")
         break
-    f.close()
+    f.close()"""
             
         
 
