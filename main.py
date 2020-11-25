@@ -521,9 +521,9 @@ print(read_label("nolabels.csv",[0,0,0,0,0]))
 """
 if __name__ == "__main__":
     #folder_to_vae_data("pics/trainpics","vae",6)
-    ans=BGMreport("trainpics/a.jpg",1,cut_n=6)
+    ans=BGMreport("trainpics/r.jpg",0,cut_n=6)
     print(ans[0])
-    print(ans[1])
+    #print(ans[1])
 
     """# testing folder_to_data() method
     folder_to_data("trainpics_test", "c", cut_n=6)"""
