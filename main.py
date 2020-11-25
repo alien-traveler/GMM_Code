@@ -248,16 +248,16 @@ def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
     t2=15
     t3=0.07
     
-    # 8.25 Change n_component, the next line needs to be changed
+    # 8.25 Change n_component, the next line needs to be changed    # 11.24.20 don't need
     n_components=count
 
     denses,_=finddensefromcut(input_path,cut_n)
     maxd=[]
-    for dense in denses[0:]:#同时处理带spe和不带的图
+    for dense in denses[(cut_n-5):]:#同时处理带spe和不带的图    for the otehr five columns 11.24
         maxd.append(max(dense))
     lofd=len(denses[0])
     samples=list()
-    for i in range(0,cut_n):#sampling for BGM
+    for i in range((cut_n-5),cut_n):#sampling for BGM   for the other five columns 11.24
         samples.append(np.array(tosample(denses[i])).reshape(-1,1))
     allmeans=[]
     allcovs=[]
@@ -267,10 +267,13 @@ def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
     If the n_component is 3, it should be 3*3*5;
     if is 4, it should be 4*3*5
     8.26.20 This number should contain 3*3*5 + n_component*3*1 """
-    BGM45=np.zeros((45+n_components*3))
     
-    for i in range(6):
-        # specific for the first column
+    """11.18.20 only sampling for the five columns except the first one, so changes needed to be done
+    11.24.20 we only need five columns now"""
+    BGM45=np.zeros((36+n_components*3))
+    
+    for i in range(5):  #for the otehr five columns 11.24
+        # specific for the first column # 11.24.20 don't need
         a = 3
         if i == 0:
             a = n_components
@@ -288,7 +291,7 @@ def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
         weights=weights[permu]
 
         
-        # the first column, which should contain n_components curves 
+        # the first column, which should contain n_components curves # 11.24.20 don't need
         if i == 0:
             BGM45[n_components:2*n_components]=means
             allmeans.append(means)
@@ -297,7 +300,9 @@ def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
             BGM45[0:n_components]=weights*len(samples[i])
             allweights.append(weights)
             continue
+        
 
+        # 11.24.20 we only need to analyze five columns now
         BGM45[(i-1)*9+n_components*3+3 : (i-1)*9+n_components*3+6]=means
         allmeans.append(means)
         BGM45[(i-1)*9+n_components*3+6 : (i-1)*9+n_components*3+9]=covs
@@ -305,7 +310,7 @@ def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
         BGM45[(i-1)*9+n_components*3 : (i-1)*9+n_components*3+3]=weights*len(samples[i]) # n_component*3 is the number storage of the first column
         allweights.append(weights)
 
-    if visualize==1:        
+    if visualize==1:        # 11.24.20 don't need
         l=0
         for i in range(0,cut_n):#visualization
             # specific for the first column
@@ -328,12 +333,13 @@ def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
         #plt.show()
         plt.clf()
     ans=np.zeros((12,))
-    pre=np.zeros((6,n_components))
-    pre_first_column=np.zeros((6,n_components))
-    for i in range(6):###preprocessing the data to avoid peak overlapping(far overlap and near overlap) influence: identify far/near overlap cases and suppress far overlap peaks, amplify near overlap peaks
+    pre=np.zeros((5,n_components))  # 11.24.20 for five columns
+    pre_first_column=np.zeros((5,n_components)) # 11.24.20 for five columns
+    for i in range(5):  # 11.24.20 for five columns
+        ###preprocessing the data to avoid peak overlapping(far overlap and near overlap) influence: identify far/near overlap cases and suppress far overlap peaks, amplify near overlap peaks
         ###如果很理想的情况应该能把两个far overlap的peak合并成一个在中间mean的，但是现在可以先直接把两个抑制掉，毕竟就不太可能是单克隆峰了。far overlap也就是两个峰实际上在图里面是同一个，BGM将其拆分从而更好的拟合高斯模型，我们这里将其抑制因为能够拆分为两个峰的基本上cov都比较大，不尖。
         
-        # specific for the first column
+        # specific for the first column # 11.24.20 don't need
         a = 3
         if i == 0:
             a = n_components
@@ -382,8 +388,8 @@ def BGMreport(input_path,out_putpath,count,visualize=1,cut_n=6):
                                     ans[7+i]=1
                                     ans[7+j]=1  
                                     ans[0]=1   
-    for i in range(6):
-        # specific for the first column
+    for i in range(5):  # 11.24.20 for five columns
+        # specific for the first column # 11.24.20 don't need
         a = 3
         if i == 0:
             a = n_components
@@ -591,7 +597,7 @@ if __name__ == "__main__":
             # each img under the folder (ex. \\Gel_A1)
             input_path = folder_path + file_name
             result = BGMreport(input_path, output_path, count, 0, cut_n=6)
-            #print(str(result[0]))
+            print(str(result[0]))
             f.write(foldername + "\t" + file_name + "\t")
             f.write(str(result[0]) + "\n")
             
