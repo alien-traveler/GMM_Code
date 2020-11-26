@@ -333,7 +333,7 @@ def BGMreport(path,filename,count,visualize=1,cut_n=6):
                 
                 #plt.ylim(0,255)
             
-            plt.show()
+        plt.show()
         
         #plt.savefig('curve/'+ filename) # 临时加的，保存图片
         #plt.show()
