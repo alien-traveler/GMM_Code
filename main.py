@@ -179,6 +179,7 @@ def tosample(dense):
     return sample
 
 def todensity(img):
+    # wi是宽度，img这里是切片后的每一条的图像
     wi=img.shape[1]
     img=cv2.resize(img,(wi,300))
     img = cv2.fastNlMeansDenoising(img,None,20,7,21)
@@ -186,6 +187,7 @@ def todensity(img):
     #plt.show()
     img2 = img[:,int(wi*0.25):int(wi*0.75)]
     dense=255-np.mean(img2,axis=1)
+    
     dense[150]=dense[150]+1###BGM will not be able to calculate 0 sample situation
     dense[151]=dense[151]+1
     dense[152]=dense[152]+1
@@ -317,21 +319,34 @@ def BGMreport(path,filename,count,visualize=1,cut_n=6):
             a = 3
             if i == 0:
                 a = n_components
-
             l+=1
+
+            fig = plt.figure()
+            ax = fig.add_subplot(111, projection = "3d")
+            X = np.arange(0, 100, lofd)
+            Y = np.array(denses[i])
+            Z = np.arange(0, 100, lofd)
+            X, Y = np.meshgrid(X, Y)
+            #R = np.sqrt(X**2 + Y**2)
+            #Z = np.sin(R)
+            surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=plt.cm.coolwarm, linewidth=0, antialiased=False)
+            #ax.set_zlim(-1.01, 1.01)
+            #ax.plot_surface(np.linspace(0,lofd,num=200,endpoint=False), denses[i], np.zeros((2,2)), rstride=1, cstride=1, cmap=plt.cm.jet)
+            plt.show()
+            plt.clf()
+            
             plt.subplot(3,2,l),plt.plot(denses[i])
-            X=np.linspace(0,lofd,num=200,endpoint=False)
-            Ys=toGM(X,a,allmeans[l-1],allcovs[l-1],allweights[l-1])
+            
+            X=np.linspace(0,lofd,num=200,endpoint=False)    # evenly spaced interval
+            Ys=toGM(X,a,allmeans[l-1],allcovs[l-1],allweights[l-1]) # from normal distribution formula to value
             for j in range(a):
                 
-                #plt.subplot(3,2,l),plt.plot(X,len(samples[l-1])*Ys[j])
-                fig = plt.figure()
-                ax = Axes3D(fig)
-
-                z = X*Ys*0
-                ax.plot_surface(X, Ys, z, rstride=1, cstride=1, cmap=plt.cm.jet)
+                plt.subplot(3,2,l)  # subplot's position
+                plt.plot(X,len(samples[l-1])*Ys[j])
                 
-                #plt.ylim(0,255)
+            
+            
+            plt.ylim(0,255)
             
         plt.show()
         
@@ -586,9 +601,10 @@ if __name__ == "__main__":
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
     path = 'after_change_pics/'
-    count = 10
+    count = 3
     for filename in os.listdir(path):
         BGMreport(os.path.join(path, filename), filename, count, 1, cut_n=6)
+        break
     
     #print(ans[0])
     
