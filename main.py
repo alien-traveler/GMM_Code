@@ -598,13 +598,12 @@ if __name__ == "__main__":
             # each img under the folder (ex. \\Gel_A1)
             input_path = folder_path + file_name
             result = BGMreport(input_path, output_path, count, 0, cut_n=6)
-            print(str(result[0]))
             f.write(foldername + "\t" + file_name + "\t")
             f.write(str(result[0]) + "\n")
-            
+                
             
         f.write("\n")
-        break
+        
     f.close()
             
         
