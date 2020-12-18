@@ -33,7 +33,7 @@ def check_size():
 # create new folder dir
 def create_new_folder_dir():
     path1 = 'new_test_pics\\new_test_pics2\\'
-    path2 = 'curve\\curve3\\'
+    path2 = 'after_change_pics\\after_change_pics3\\'
     #folder_name_list = []
     for filename in os.listdir(path1):
         #folder_name_list.append(filename)
@@ -41,8 +41,6 @@ def create_new_folder_dir():
         if not os.path.exists(newpath):
             os.makedirs(newpath)
     
-
-
 
 # crop the image into the size we need
 def crop_original_img(name, x1, y1):
@@ -71,6 +69,38 @@ def crop_original_img(name, x1, y1):
         xf = x2
         yi += 930
         yf += 930
+
+def swipe_filename():
+    i = 1189 - 1
+    j = i - 3
+    k = j - 3
+    count = 0
+    path1 = "new_test_pics\\new_test_pics2\\Gel_D1"
+    for filename in os.listdir(path1):
+        if count >= 0 and count <= 2:    # count = 1,2
+            i += 1
+            os.rename(os.path.join(path1, filename), os.path.join(path1, str(i)+'.jpg'))
+        elif count >= 3 and count <= 5:
+            j += 1
+            os.rename(os.path.join(path1, filename), os.path.join(path1, str(j)+'.jpg'))
+        else:
+            k += 1
+            os.rename(os.path.join(path1, filename), os.path.join(path1, str(k)+'.jpg'))
+        count += 1
+
+def remedy():
+    count = 0
+    path1 = "new_test_pics\\new_test_pics2\\Gel_C9"
+    for filename in os.listdir(path1):
+        os.rename(os.path.join(path1, filename), os.path.join(path1, str(count)+'.jpg'))
+        count += 1
+
+def remedy2():
+    count = 1035
+    path1 = "new_test_pics\\new_test_pics2\\Gel_A5"
+    for filename in os.listdir(path1):
+        os.rename(os.path.join(path1, filename), os.path.join(path1, str(count)+'.jpg'))
+        count += 1
 
 
 if __name__ == "__main__":
