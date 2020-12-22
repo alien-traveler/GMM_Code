@@ -1,0 +1,118 @@
+Incorrect: 1003	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1005	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1008	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1009	Label: DGL	[1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]	Our value: [1. 1. 1. 0. 0. 0. 0. 1. 0. 0. 1. 1.]
+Incorrect: 1010	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 1. 1. 0. 0. 0. 0. 1. 0. 0. 1. 1.]
+Incorrect: 1011	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1012	Label: DAK	[1. 0. 0. 1. 0. 0. 0. 0. 1. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1013	Label: DAK	[1. 0. 0. 1. 0. 0. 0. 0. 1. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1014	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1015	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1017	Label: DGL	[1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1019	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1020	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1022	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1025	Label: DFL	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1027	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1029	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1030	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1031	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1042	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1043	Label: DFL	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1044	Label: DML	[1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0. 1.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1045	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]
+Incorrect: 1046	Label: DFL	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]	Our value: [1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]
+Incorrect: 1047	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1048	Label: DGL	[1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1050	Label: DML	[1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0. 1.]	Our value: [1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]
+Incorrect: 1053	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1054	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1058	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1059	Label: DFL	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1061	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1066	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1067	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1068	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1069	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1070	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]
+Incorrect: 1072	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1074	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]
+Incorrect: 1076	Label: DML	[1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0. 1.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1082	Label: DFL	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1085	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1087	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1088	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1090	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1095	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1097	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0.]
+Incorrect: 1098	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]
+Incorrect: 1099	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1102	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1104	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1112	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1113	Label: DAL	[1. 0. 0. 0. 1. 0. 0. 0. 1. 0. 0. 1.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1114	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1117	Label: DAK	[1. 0. 0. 1. 0. 0. 0. 0. 1. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1121	Label: DGL	[1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1123	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1128	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1131	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0.]
+Incorrect: 1135	Label: DGL	[1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1136	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1138	Label: DAK	[1. 0. 0. 1. 0. 0. 0. 0. 1. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1141	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0.]
+Incorrect: 1145	Label: DGL	[1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1147	Label: DGL	[1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]	Our value: [1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]
+Incorrect: 1148	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1149	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1151	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1152	Label: DFL	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1154	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1157	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 1. 0. 0. 0.]
+Incorrect: 1159	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1161	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0.]
+Incorrect: 1166	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]
+Incorrect: 1167	Label: DFL	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1168	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]
+Incorrect: 1171	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1173	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1174	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1175	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1176	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1179	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]
+Incorrect: 1182	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1183	Label: DIFN	[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]	Our value: [1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]
+Incorrect: 1184	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1185	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1186	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+Incorrect: 1187	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1188	Label: DML	[1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0. 1.]	Our value: [1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 1.]
+Incorrect: 1189	Label: DGL	[1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 1.]	Our value: [1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+Incorrect: 1190	Label: DGK	[1. 1. 0. 0. 0. 0. 0. 1. 0. 0. 1. 0.]	Our value: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Incorrect: 1191	Label: DMK	[1. 0. 0. 0. 0. 1. 0. 0. 0. 1. 1. 0.]	Our value: [1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1.]
+Label not matched: 1021	Label: DGL DFL
+Label not matched: 1023	Label: DAK /IgG HC
+Label not matched: 1028	Label: DGK/DGL
+Label not matched: 1041	Label: DGL/DFL
+Label not matched: 1049	Label: DGK DGL
+Label not matched: 1056	Label: DGK x2
+Label not matched: 1063	Label: DGK/DFL
+Label not matched: 1080	Label: DML/IGM HC
+Label not matched: 1083	Label: DAL X2
+Label not matched: 1084	Label: DGK/DFK
+Label not matched: 1096	Label: DMK x3
+Label not matched: 1100	Label: DGL/DGK
+Label not matched: 1103	Label: DGK DAK
+Label not matched: 1106	Label: SKIPPED
+Label not matched: 1109	Label: DAL X2
+Label not matched: 1110	Label: DAK X2
+Label not matched: 1127	Label: DAL X2
+Label not matched: 1129	Label: DML/ IgM hc
+Label not matched: 1153	Label: DAL/DML/DGK
+Image not found in our data: 1018	Label: DAL
+Image not found in our data: 1032	Label: DIFN
+
+Total (exlcude uncertain ones): 170
+Correct: 78
+Wrong: 92
+Uncertain: 21
