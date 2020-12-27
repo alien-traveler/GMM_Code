@@ -272,7 +272,7 @@ def BGMreport(input_path,output_path,count,visualize=1,cut_n=6):
     11.24.20 we only need five columns now"""
     BGM45=np.zeros((36+n_components*3))
     
-    for i in range(5):  #for the otehr five columns 11.24
+    for i in range(5):  #for the other five columns 11.24
         # specific for the first column # 11.24.20 don't need
         a = 3
         if i == 0:
