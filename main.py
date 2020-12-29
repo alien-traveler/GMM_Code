@@ -605,11 +605,8 @@ if __name__ == "__main__":
         f.write("\n")
         
     f.close()
-            
-        
-    #test git remote tracking
-    # test 2
-    # test 3
+
+
 
     """for filename in os.listdir(path):
         BGMreport(os.path.join(path, filename), filename, count, 1, cut_n=6)"""
