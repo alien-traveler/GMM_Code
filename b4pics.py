@@ -70,12 +70,12 @@ def crop_original_img(name, x1, y1):
         yi += 930
         yf += 930
 
-def swipe_filename():
-    i = 1189 - 1
+def swipe_filename(initnum, filename):
+    i = initnum - 1
     j = i - 3
     k = j - 3
     count = 0
-    path1 = "new_test_pics\\new_test_pics2\\Gel_D1"
+    path1 = "curve\\curve3\\"+filename
     for filename in os.listdir(path1):
         if count >= 0 and count <= 2:    # count = 1,2
             i += 1
@@ -104,7 +104,7 @@ def remedy2():
 
 
 if __name__ == "__main__":
-    create_new_folder_dir()
+    swipe_filename(1189, "Gel_D1")
     """name = "Gel_C5"
     x, y = 920, 430    # 这是首坐标，第一张要切的小图在大图中的（左上角）坐标
     crop_original_img(name, x, y)"""
