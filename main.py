@@ -6,6 +6,8 @@ from sklearn.mixture import BayesianGaussianMixture
 from sklearn.mixture import GaussianMixture
 import os,sys
 import pickle
+import warnings
+import matplotlib.cbook
 
 def decision_distance(svm,x):
         w=svm.coef_
@@ -185,6 +187,13 @@ def todensity(img):
     #plt.show()
     img2 = img[:,int(wi*0.25):int(wi*0.75)]
     dense=255-np.mean(img2,axis=1)
+    
+
+    # add a controller where any value lower than 30 will be 0 because in the image, they are just white block part
+    for index in range(len(dense)):
+        if dense[index] < 30:
+            dense[index] = 0
+    
     dense[150]=dense[150]+1###BGM will not be able to calculate 0 sample situation
     dense[151]=dense[151]+1
     dense[152]=dense[152]+1
@@ -571,7 +580,10 @@ if __name__ == "__main__":
     ans=BGMreport("trainpics/a.jpg",1,cut_n=6)
     print(ans[0])
     print(ans[1])"""
-
+    
+    # suppress warning of MatplotlibDeprecationWarning
+    warnings.filterwarnings("ignore",category=matplotlib.cbook.mplDeprecation)
+    
     # testing folder_to_data() method 
     #folder_to_data("test_pic", "test_", cut_n=6)
     folder_list = ['Gel_A1', 'Gel_A2', 'Gel_A3', 'Gel_A4', 'Gel_A5', 
@@ -580,7 +592,7 @@ if __name__ == "__main__":
         'Gel_C6', 'Gel_C7', 'Gel_C8', 'Gel_C9', 'Gel_D1']
 
     path = 'after_change_pics\\after_change_pics3\\'
-    path2 = 'curve\\curve3\\'
+    path2 = 'curve\\curve3.2\\'
     count = 10
     for foldername in folder_list:
         # each foler under the new_test_pics2
@@ -591,6 +603,8 @@ if __name__ == "__main__":
             input_path = folder_path + file_name
             output_path = folder_path2 + file_name
             BGMreport(input_path, output_path, count, 1, cut_n=6)
+            
+        
             
         
 

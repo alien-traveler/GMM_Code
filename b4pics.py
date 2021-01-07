@@ -33,7 +33,7 @@ def check_size():
 # create new folder dir
 def create_new_folder_dir():
     path1 = 'new_test_pics\\new_test_pics2\\'
-    path2 = 'curve\\curve3\\'
+    path2 = 'curve\\curve3.2\\'
     #folder_name_list = []
     for filename in os.listdir(path1):
         #folder_name_list.append(filename)
