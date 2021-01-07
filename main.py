@@ -185,6 +185,11 @@ def todensity(img):
     #plt.show()
     img2 = img[:,int(wi*0.25):int(wi*0.75)]
     dense=255-np.mean(img2,axis=1)
+    # add a controller where any value lower than 30 will be 0 because in the image, they are just white block part
+    for index in range(len(dense)):
+        if dense[index] < 30:
+            dense[index] = 0
+    
     dense[150]=dense[150]+1###BGM will not be able to calculate 0 sample situation
     dense[151]=dense[151]+1
     dense[152]=dense[152]+1
@@ -588,7 +593,7 @@ if __name__ == "__main__":
 
     path = 'after_change_pics\\after_change_pics3\\'
     output_path = ""
-    f = open("12d_array_result\\result3\\result.txt", "a")
+    f = open("12d_array_result\\result3\\result_ver2.txt", "a")
     count = 3
     for foldername in folder_list:
         # each foler under the new_test_pics2
@@ -603,6 +608,7 @@ if __name__ == "__main__":
                 
             
         f.write("\n")
+        
         
     f.close()
 

@@ -3,8 +3,8 @@ import numpy as np
 import openpyxl
 
 excel_path = '12d_array_result\\result3\\Copy of GELCODES_SIFE_Oct20.xlsx'
-result_path = '12d_array_result\\result3\\result.txt'
-final_result_path = '12d_array_result\\result3\\result_after_comparison.txt'
+result_path = '12d_array_result\\result3\\result_ver2.txt'
+final_result_path = '12d_array_result\\result3\\result_after_comparison_ver2.txt'
 
 uncertain_info1 = []
 uncertain_info2 = []
