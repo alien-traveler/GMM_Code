@@ -5,10 +5,10 @@ def transform(z):#即将5*9矩阵z转换为5*(9+n)矩阵的，这里暂时不考
     means=z[:,n_components:2*n_components]
     covs=z[:,2*n_components:3*n_components]
     weights=z[:,0:n_components]
-    weight_diff=np.zeros((z.shape[0],n_components*(n_components-1)/2))#第0维为band数量，第1维为components中取两个不重复的个数
-    far_overlap=np.zeros((z.shape[0],n_components*(n_components-1)/2))
-    near_overlap1=np.zeros((z.shape[0],n_components*(n_components-1)/2))
-    near_overlap2=np.zeros((z.shape[0],n_components*(n_components-1)/2))
+    weight_diff=np.zeros((z.shape[0],int(n_components*(n_components-1)/2)))#第0维为band数量，第1维为components中取两个不重复的个数
+    far_overlap=np.zeros((z.shape[0],int(n_components*(n_components-1)/2)))
+    near_overlap1=np.zeros((z.shape[0],int(n_components*(n_components-1)/2)))
+    near_overlap2=np.zeros((z.shape[0],int(n_components*(n_components-1)/2)))
     sharpness=np.zeros((z.shape[0],n_components))
 
     for i in range(z.shape[0]):

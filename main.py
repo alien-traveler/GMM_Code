@@ -6,6 +6,7 @@ from sklearn.mixture import BayesianGaussianMixture
 from sklearn.mixture import GaussianMixture
 import os,sys
 import pickle
+import feature_expand
 
 def decision_distance(svm,x):
         w=svm.coef_
@@ -314,8 +315,16 @@ def BGMreport(input_path,output_path,count,visualize=1,cut_n=6):
         allcovs.append(covs)
         BGM45[(i-1)*9+n_components*3 : (i-1)*9+n_components*3+3]=weights*len(samples[i]) # n_component*3 is the number storage of the first column
         allweights.append(weights)
+    
+    # reshape BGM 45
+    feature_array = np.array(BGM45)
+    new_BGM45 = feature_array.reshape(5, 9)
+    
+    # expand features
+    #BGM45_features = feature_expand.transform(new_BGM45)
 
-    if visualize==1:        # 11.24.20 don't need
+    # 01.11.21 all this section is not needed
+    """if visualize==1:        # 11.24.20 don't need
         l=0
         for i in range(0,cut_n):#visualization
             # specific for the first column
@@ -411,8 +420,8 @@ def BGMreport(input_path,output_path,count,visualize=1,cut_n=6):
                 continue
             else:
                 ans[7+i]=1
-                ans[0]=1
-    return ans,BGM45
+                ans[0]=1"""
+    return new_BGM45
 """
 def onepeakreport(path):
     t1=130
@@ -593,7 +602,8 @@ if __name__ == "__main__":
 
     path = 'after_change_pics\\after_change_pics3\\'
     output_path = ""
-    f = open("12d_array_result\\result3\\result_ver2.txt", "a")
+    f1 = open("features\\features1\\features_result1.txt", "a")
+    f2 = open("features\\features1\\features_index1.txt", "a")
     count = 3
     for foldername in folder_list:
         # each foler under the new_test_pics2
@@ -603,15 +613,17 @@ if __name__ == "__main__":
             # each img under the folder (ex. \\Gel_A1)
             input_path = folder_path + file_name
             result = BGMreport(input_path, output_path, count, 0, cut_n=6)
-            f.write(foldername + "\t" + file_name + "\t")
-            f.write(str(result[0]) + "\n")
-                
+            f2.write(foldername + "\t" + file_name + "\n")
+            f1.write(str(result) + "\n\n")
             
-        f.write("\n")
-        
-        
-    f.close()
 
+        f2.write("\n")
+            
+        
+        
+        
+    f1.close()
+    f2.close()
 
 
     """for filename in os.listdir(path):
