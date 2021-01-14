@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import openpyxl
+import pickle
 
 excel_path = '12d_array_result\\result3\\Copy of GELCODES_SIFE_Oct20.xlsx'
 result_path = '12d_array_result\\result3\\result_ver2.txt'
@@ -24,10 +25,26 @@ answerkey = {
     "IGM HC" : "[1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0.]",
 }
 
+answerkey_array = {
+    "DIFN" : [0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,],
+    "DGK" : [1., 1., 0., 0., 0., 0., 0., 1., 0., 0., 1., 0.,],
+    "DGL" : [1., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 1.,],
+    "DAK" : [1., 0., 0., 1., 0., 0., 0., 0., 1., 0., 1., 0.,],
+    "DAL" : [1., 0., 0., 0., 1., 0., 0., 0., 1., 0., 0., 1.,],
+    "DMK" : [1., 0., 0., 0., 0., 1., 0., 0., 0., 1., 1., 0.,],
+    "DML" : [1., 0., 0., 0., 0., 0., 1., 0., 0., 1., 0., 1.,],
+    "DFK" : [1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0.,],
+    "DFL" : [1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 1.,],
+    "IgG HC" : [1., 0., 0., 0., 0., 0., 0., 1., 0., 0., 0., 0.,],
+    "IGM HC" : [1., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0., 0.,],
+}
+
+
+
 def extract_info_from_excel(file_location):
     wb = openpyxl.load_workbook(file_location)
     ws = wb['Sheet1']
-    for col in ws.iter_rows(min_row=3, max_row=193, min_col=2, max_col=3, values_only=True):      
+    for col in ws.iter_rows(min_row=3, max_row=191, min_col=2, max_col=3, values_only=True):      
         correct_answer[col[0]] = col[1]
     
     
@@ -79,8 +96,30 @@ def compare_result():
     final_result_file.write("Uncertain: "+str(uncertain)+"\n")
     final_result_file.close()
 
+def store_label():
+    index_file = open('features\\features1_answerkeys\\answerkey_index.pkl', 'wb')
+    key_file = open('features\\features1_answerkeys\\answerkey_value.pkl', 'wb')
+    answer_index = []
+    answer_array_list = []
+    for c_answer_index in correct_answer:
+        answer_index.append(c_answer_index)
+        c_answer_value = correct_answer.get(c_answer_index)
+        answerkey_value = answerkey.get(c_answer_value)
+        ansarray_value = answerkey_array.get(c_answer_value)
+        if answerkey_value == None:
+            ansarray_value = [1.] * 12
+        answer_array_list.append(ansarray_value)
+    answer_index = np.array(answer_index)
+    answer_array_list = np.array(answer_array_list)
+    pickle.dump(answer_index, index_file)
+    pickle.dump(answer_array_list, key_file)
 
 if __name__ == "__main__":
-    extract_info_from_excel(excel_path)
+    """extract_info_from_excel(excel_path)
     extract_data_from_resulttxt(result_path)
-    compare_result()
+    compare_result()"""
+
+    extract_info_from_excel(excel_path)
+    store_label()
+    
+    

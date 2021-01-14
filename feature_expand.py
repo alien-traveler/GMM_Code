@@ -1,4 +1,6 @@
 import numpy as np
+import os
+import pickle
 
 def transform(z):#即将5*9矩阵z转换为5*(9+n)矩阵的，这里暂时不考虑两个条带之间的约束和信息，所以仅考虑一个条带三个component之间有什么有用的交叉feature来扩充
     n_components=3
@@ -17,7 +19,7 @@ def transform(z):#即将5*9矩阵z转换为5*(9+n)矩阵的，这里暂时不考
             for l in range(n_components):
                 if j<l:
                     weight_diff[i,ind]=np.abs(np.log(weights[i,j]/weights[i,l]))#采用ln的绝对值让他刻画两者之间做除法的差距的程度
-                    far_overlap[i,ind]=np.abs(np.log((np.sqrt(covs[i,j])+np.sqrt(covs[i,l]))*covs[i,j]*weights[i,l]/covs[i,l]/weights[i,j]/np.abs(means[i,j],-means[i,l])))
+                    far_overlap[i,ind]=np.abs(np.log((np.sqrt(covs[i,j])+np.sqrt(covs[i,l]))*covs[i,j]*weights[i,l]/covs[i,l]/weights[i,j]/np.abs(means[i,j]-means[i,l])))
                     near_overlap1[i,ind]=np.abs(means[i,j]-means[i,l])/np.sqrt(max(covs[i,j],covs[i,l]))
                     if covs[i,j]/weights[i,l]/covs[i,j]*weights[i,j]>1:#j component has larger var
                         sharp_b=l
@@ -32,3 +34,15 @@ def transform(z):#即将5*9矩阵z转换为5*(9+n)矩阵的，这里暂时不考
             sharpness[i,j]=covs[i,j]/weights[i,j]
     z_expand=np.hstack((z,weight_diff,far_overlap,near_overlap1,near_overlap2,sharpness))
     return z_expand
+
+if __name__ == "__main__":
+    f=open("features/features1/features_result_n.pkl","rb")
+    featurelist = pickle.load(f)
+    newfeaturelist=[]
+    for feature in featurelist:
+        newfeaturelist.append(transform(feature))
+    newfeaturelist=np.array(newfeaturelist)
+    g=open("features/features1/transformed_feature_list.pkl","wb")
+    pickle.dump(newfeaturelist,g)
+    f.close()
+    g.close()

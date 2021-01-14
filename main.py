@@ -315,11 +315,13 @@ def BGMreport(input_path,output_path,count,visualize=1,cut_n=6):
         allcovs.append(covs)
         BGM45[(i-1)*9+n_components*3 : (i-1)*9+n_components*3+3]=weights*len(samples[i]) # n_component*3 is the number storage of the first column
         allweights.append(weights)
-    
+    return BGM45
+
+def reshape_BGM45(BGM45):
     # reshape BGM 45
     feature_array = np.array(BGM45)
     new_BGM45 = feature_array.reshape(5, 9)
-    
+    return new_BGM45
     # expand features
     #BGM45_features = feature_expand.transform(new_BGM45)
 
@@ -421,7 +423,7 @@ def BGMreport(input_path,output_path,count,visualize=1,cut_n=6):
             else:
                 ans[7+i]=1
                 ans[0]=1"""
-    return new_BGM45
+    
 """
 def onepeakreport(path):
     t1=130
@@ -600,28 +602,27 @@ if __name__ == "__main__":
         'Gel_B5', 'Gel_C1', 'Gel_C2', 'Gel_C3', 'Gel_C4', 'Gel_C5', 
         'Gel_C6', 'Gel_C7', 'Gel_C8', 'Gel_C9', 'Gel_D1']
 
-    path = 'after_change_pics\\after_change_pics3\\'
+    path = 'after_change_pics/after_change_pics3/'
     output_path = ""
-    f1 = open("features\\features1\\features_result1.txt", "a")
-    f2 = open("features\\features1\\features_index1.txt", "a")
+    featurelist=[]
+    f1 = open("features/features1/features_result_n.pkl","wb")
+    f2 = open("features/features1/features_index_n.txt", "w")
     count = 3
     for foldername in folder_list:
         # each foler under the new_test_pics2
-        folder_path = path + foldername + '\\'
+        folder_path = path + foldername + '/'
         
         for file_name in os.listdir(folder_path):
             # each img under the folder (ex. \\Gel_A1)
             input_path = folder_path + file_name
             result = BGMreport(input_path, output_path, count, 0, cut_n=6)
+            new_result = reshape_BGM45(result)
+            featurelist.append(new_result)
             f2.write(foldername + "\t" + file_name + "\n")
-            f1.write(str(result) + "\n\n")
-            
-
         f2.write("\n")
-            
-        
-        
-        
+    
+    featurelist=np.array(featurelist)
+    pickle.dump(featurelist,f1)
     f1.close()
     f2.close()
 
